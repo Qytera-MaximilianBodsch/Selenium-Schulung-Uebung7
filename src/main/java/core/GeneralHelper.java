@@ -55,8 +55,10 @@ public class GeneralHelper {
         driver.manage().window().maximize();
     }
 
-    @AfterAll
-    public static void tearDown(){
+    @AfterEach
+    public void tearDown(){
+
         driver.quit();
+        driver = null;
     }
 }
