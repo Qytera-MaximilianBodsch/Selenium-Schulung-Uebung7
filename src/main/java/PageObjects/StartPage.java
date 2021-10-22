@@ -15,6 +15,6 @@ public class StartPage extends GeneralHelper {
     public static final By newEntries = By.xpath("//h2[contains(text(),'Neue Beiträge')]");
 
     public void checkHeaderContributionsIsShown(){
-        Assertions.assertTrue(driver.findElement(newEntries).isDisplayed());
+        generalPage.waitUntilElementClickable(driver.findElement(newEntries),10).isDisplayed();
     }
 }
