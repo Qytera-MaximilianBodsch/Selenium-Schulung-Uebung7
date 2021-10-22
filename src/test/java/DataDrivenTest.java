@@ -1,14 +1,9 @@
-import com.tngtech.junit.dataprovider.DataProvider;
-import com.tngtech.junit.dataprovider.DataProviderExtension;
-import com.tngtech.junit.dataprovider.UseDataProvider;
-import com.tngtech.junit.dataprovider.UseDataProviderExtension;
+import com.tngtech.junit.dataprovider.*;
 import core.GeneralHelper;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-
-@ExtendWith(UseDataProviderExtension.class)
-@ExtendWith(DataProviderExtension.class)
+@ExtendWith({UseDataProviderExtension.class, DataProviderExtension.class})
 public class DataDrivenTest extends GeneralHelper {
     @DataProvider
     public static Object[][] dataProvider() {
@@ -18,6 +13,7 @@ public class DataDrivenTest extends GeneralHelper {
                 {"https://www.qytera.de/","die experten"}
         };
     }
+    
     @UseDataProvider("dataProvider")
     @TestTemplate
     public void test(String url, String title){
@@ -25,5 +21,3 @@ public class DataDrivenTest extends GeneralHelper {
         generalPage.assertTabTitle(title);
     }
 }
-
-
