@@ -1,11 +1,9 @@
 package core;
+
 import PageObjects.ContactPage;
 import PageObjects.GeneralPage;
 import PageObjects.StartPage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -28,7 +26,7 @@ public class GeneralHelper {
                     return new ChromeDriver();
                 }
                 if(System.getenv("SELENIUM_BROWSER_CONFIG").equalsIgnoreCase("firefox")) {
-                    System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\geckodriver.exe");
+                    System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
                     return new FirefoxDriver();
                 }
                 else{
@@ -47,6 +45,7 @@ public class GeneralHelper {
             return driver;
         }
     }
+    
     @BeforeEach
     public void browserOptions(){
         if(driver==null){
@@ -57,7 +56,6 @@ public class GeneralHelper {
 
     @AfterEach
     public void tearDown(){
-
         driver.quit();
         driver = null;
     }
