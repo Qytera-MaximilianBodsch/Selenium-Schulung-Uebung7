@@ -16,6 +16,7 @@ public class FirstTestCase extends GeneralHelper {
         contactPage.checkPrivateIsNotChecked();
     }
 
+    //Comment
     @Test
     @Tag("MySecondTestcase")
     public void secondTestCase(){
